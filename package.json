@@ -1,0 +1,24 @@
+{
+  "name": "davidsotomayor",
+  "version": "1.0.0",
+  "description": "David Sotomayor business website.",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.4",
+    "node": "^10.12.0",
+    "nodemailer": "^4.6.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Robert Molina",
+  "license": "ISC"
+}
