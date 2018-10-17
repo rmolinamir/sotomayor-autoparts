@@ -10,7 +10,7 @@ const   express          = require("express"),
 
 //Mongoose Database
 const url = (process.env.DATABASEURL);
-mongoose.connect(url);
+mongoose.connect(url, { useNewUrlParser: true });
 
 // Body parser, xpress sanitizer, method override and flash configurations
 app.use(bodyParser.urlencoded({
