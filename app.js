@@ -32,12 +32,14 @@ app.use(session({
     }
 }));
 
-// // Flash config
-// app.use(flash());
-// app.use(function(req, res, next) {
-//     res.locals.error = req.flash("error");
-//     res.locals.success = req.flash("success");
-// });
+// Flash config
+app.use(flash());
+app.use(function(req, res, next) {
+    res.locals.session = req.session;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");  
+    next();
+});
 
 // Index route
 app.get("/", function(req, res) {
