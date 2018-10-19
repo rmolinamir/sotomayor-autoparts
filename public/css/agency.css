@@ -56,7 +56,7 @@ section h3.section-subheading {
 
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 75px 0;
   }
 }
 
@@ -165,33 +165,24 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
-    background-color: #212529;
+    background-color: rgba(45, 45, 45, 0.5);
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
     padding: 12px 0;
   }
 }
-
 header.masthead {
   height: 100vh;
   width: 100vw;
   text-align: center;
   color: white;
   background-image: url("../img/header-bg.jpg");
-  /* background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover; */
-
- 
-
   position: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
-
 }
 
 header.masthead .intro-text {
@@ -228,7 +219,8 @@ header.masthead .intro-text .intro-heading {
     padding-bottom: 200px;
   }
   header.masthead .intro-text .intro-lead-in {
-    font-size: 30px;
+    font-size: 25px;
+    color: #d8d8d8;
     font-style: italic;
     line-height: 40px;
     margin-bottom: 25px;
@@ -254,6 +246,66 @@ main {
 .service-heading {
   margin: 15px 0;
   text-transform: none;
+}
+
+.fa-shopping-cart:before {
+  content: "\f07a";
+  padding-right: 10px;
+}
+
+.fa-business-time:before {
+  content: "\f64a";
+  padding-left: 10px;
+}
+
+#open {
+  color: #009a23;
+  border: 1px solid;
+  border-color: #009a23;
+  padding: 2.5px;
+  user-select: none;
+  cursor: pointer;
+}
+
+#closed {
+  color: #bf0315;
+  border: 1px solid;
+  border-color: #bf0315;
+  padding: 2.5px 5px;
+  user-select: none;
+  cursor: pointer;
+}
+
+#google-map-address {
+  color: #ffc600;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  border-radius: 30px;
+  border: 2px solid #fed136;
+}
+
+#openGoogle {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+#centerMap {
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+a.mapboxgl-ctrl-logo, .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-attrib.mapboxgl-compact:after {
+  display: none;
 }
 
 #portfolio .portfolio-item {

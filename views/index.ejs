@@ -37,6 +37,14 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+    <!-- Mapbox -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js"></script>  
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css" rel="stylesheet" />  
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+
     <!-- Custom styles for this template -->
     <link href="css/agency.css" rel="stylesheet">
 
@@ -55,10 +63,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#services">¿Quiénes Somos?</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Nuestros Repuestos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -79,7 +87,7 @@
       <div class="overlay">
         <div class="container">
           <div class="intro-text">
-            <div class="intro-lead-in">Venta de Repuestos<br>Carros y Camiones<br>Cubrimos Toyota, Chevrolet, Ford, Jeep</div>
+            <div class="intro-lead-in">Venta de Repuestos para Carros y Camiones<br>Toyota &#8226 Chevrolet &#8226 Ford &#8226 Jeep</div>
             <div class="intro-heading text-uppercase">Repuestos Sotomayor</div>
             <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Más Información</a>
           </div>
@@ -94,8 +102,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">Services</h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              <h2 class="section-heading text-uppercase">¿Quiénes Somos?</h2>
+              <h3 class="section-subheading text-muted">Repuestos Sotomayor. Venta de Repuestos Automovilísticos.</h3>
             </div>
           </div>
           <div class="row text-center">
@@ -104,25 +112,40 @@
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
                 <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
               </span>
-              <h4 class="service-heading">E-Commerce</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              <h4 class="service-heading">¡Te lo tenemos!</h4>
+              <p class="text-muted">Trabajamos con una amplia gama de repuestos para motores, trenes delanteros, transmisión, suspensión, y más!</p>
             </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-star fa-stack-1x fa-inverse"></i>
               </span>
-              <h4 class="service-heading">Responsive Design</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              <h4 class="service-heading">Calidad Garantizada</h4>
+              <p class="text-muted">Ofrecemos las marcas de mejor calidad y más ecónomicas del mercado para su propio beneficio.</p>
             </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-business-time fa-stack-1x fa-inverse"></i>
               </span>
-              <h4 class="service-heading">Web Security</h4>
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              <h4 class="service-heading">Horarios</h4>
+              <p>Abiertos todos los días desde las <strong>8:00 AM</strong> hasta las  <strong>2:00 PM</strong>.</p>
+              <p class="text-muted">
+                <% if (moment().isAfter(moment('8:00am', 'h:mma')) && moment().isBefore(moment('2:00pm', 'h:mma'))) { %>
+                  <span id='open'>Abiertos</span>
+                <% } else { %>
+                  <span id='closed'>Cerrados</span>
+                <% } %>
+              </p>
             </div>
+          </div>
+          <div class="col-lg-12 text-center" style="margin-top: 75px;">
+            <h2 class="section-heading text-uppercase">¿Donde Estamos?</h2>
+            <h3 class="section-subheading text-muted" style="margin-bottom: 50px;"><a id="google-map-address" href="https://www.google.com/maps/place/Repuestos+Sotomayor+C.A/@10.1726933,-68.0125119,19z/data=!4m8!1m2!2m1!1sAvenida+Padre+Alfonzo+Cruce+con+Avenida+Michelena.+Edif.+90-64.+Sector+la+Candelaria+Valencia,+Edo.+Carabobo.!3m4!1s0x8e806711fdb4f7f3:0xdf6f059983c57db2!8m2!3d10.1726422!4d-68.0121551" target="_blank"><strong>Avenida Padre Alfonzo Cruce con Avenida Michelena. Edif. 90-64. Sector la Candelaria Valencia, Edo. Carabobo.</strong></a></h3>
+          </div>
+          <div id='map'>
+            <a href="https://www.google.com/maps/place/Repuestos+Sotomayor+C.A/@10.1726933,-68.0125119,19z/data=!4m8!1m2!2m1!1sAvenida+Padre+Alfonzo+Cruce+con+Avenida+Michelena.+Edif.+90-64.+Sector+la+Candelaria+Valencia,+Edo.+Carabobo.!3m4!1s0x8e806711fdb4f7f3:0xdf6f059983c57db2!8m2!3d10.1726422!4d-68.0121551" target="_blank"><div id='openGoogle' class="btn btn-info"><i class="fas fa-external-link-alt"></i> Google Maps</div></a>
+            <div id='centerMap' class="btn btn-light"><i class="far fa-dot-circle"></i> Centrar</div>
           </div>
         </div>
       </section>
@@ -132,8 +155,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">Portfolio</h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              <h2 class="section-heading text-uppercase">Nuestros Repuestos</h2>
+              <h3 class="section-subheading text-muted">Toyota &#8226 Chevrolet &#8226 Ford &#8226 Jeep</h3>
             </div>
           </div>
           <div class="row">
@@ -144,11 +167,11 @@
                     <i class="fas fa-plus fa-3x"></i>
                   </div>
                 </div>
-                <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
+                <img class="img-fluid" src="img/portfolio/01-full.jpg" alt="">
               </a>
               <div class="portfolio-caption">
-                <h4>Threads</h4>
-                <p class="text-muted">Illustration</p>
+                <h4>Motores</h4>
+                <p class="text-muted">Correas</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
@@ -403,22 +426,22 @@
           <div class="row">
             <div class="col-md-3 col-sm-6">
               <a href="#">
-                <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+                <img class="img-fluid d-block mx-auto" src="img/logos/toyota-logo.jpg" alt="">
               </a>
             </div>
             <div class="col-md-3 col-sm-6">
               <a href="#">
-                <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+                <img class="img-fluid d-block mx-auto" src="img/logos/chevrolet-logo.jpg" alt="">
               </a>
             </div>
             <div class="col-md-3 col-sm-6">
               <a href="#">
-                <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
+                <img class="img-fluid d-block mx-auto" src="img/logos/ford-logo.jpg" alt="">
               </a>
             </div>
             <div class="col-md-3 col-sm-6">
               <a href="#">
-                <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+                <img class="img-fluid d-block mx-auto" src="img/logos/jeep-logo.jpg" alt="">
               </a>
             </div>
           </div>
@@ -475,23 +498,18 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <span class="copyright">Copyright &copy; Your Website 2018</span>
+              <span class="copyright">Copyright &copy; Repuestos Sotomayor <%= moment().format('YYYY'); %> </span>
             </div>
             <div class="col-md-4">
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
+                  <a href="https://www.instagram.com/sotomayor.repuestos/" target="_blank">
+                    <i class="fab fa-instagram"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="#">
+                  <a href="https://www.facebook.com/sotomayor.repuestos" target="_blank">
                     <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
                   </a>
                 </li>
               </ul>
@@ -499,10 +517,7 @@
             <div class="col-md-4">
               <ul class="list-inline quicklinks">
                 <li class="list-inline-item">
-                  <a href="#">Privacy Policy</a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">Terms of Use</a>
+                  <a href="#">Página Web desarrollada por Robert Molina</a>
                 </li>
               </ul>
             </div>
@@ -730,7 +745,60 @@
     <script src="js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+    <script src="js/agency.js"></script>
+
+    <!-- Mapbox -->
+    <script>
+      mapboxgl.accessToken = "pk.eyJ1Ijoicm9iZXJ0MDMxMCIsImEiOiJjam5mZjlzZnQwazhuM3BwN283b3Q0ZDFqIn0.xxJ6Db0UXKmKp3_Z6I_low";
+      var bounds = [
+          [-68.06214,10.14743], // Southwest coordinates
+          [-67.96214,10.19743]  // Northeast coordinates
+      ];
+
+
+      /* Map: This represents the map on the page. */
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v10",
+        zoom:15.0,
+        center: [-68.01214,10.17243],
+        maxBounds: bounds // Sets bounds as max
+      });
+
+      map.on("load", function () {
+        /* Image: An image is loaded and added to the map. */
+        map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+            if (error) throw error;
+            map.addImage("custom-marker", image);
+            /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+            map.addLayer({
+              id: "markers",
+              type: "symbol",
+              /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+              source: {
+                type: "geojson",
+                data: {
+                  type: "FeatureCollection",
+                  features:[{"type":"Feature","geometry":{"type":"Point","coordinates":["-68.0121437815","10.1728411"]}}]}
+              },
+              layout: {
+                "icon-image": "custom-marker",
+              }
+            });
+          });
+
+          // Add zoom and rotation controls to the map.
+          if (!isMobile) {
+            map.scrollZoom.disable();
+          }
+          map.addControl(new mapboxgl.NavigationControl());
+
+          // Center the map on the coordinates.
+          document.getElementById("centerMap").addEventListener('click', function (e) {
+            map.flyTo({center: ["-68.0121437815","10.1728411"]});
+          });
+      });
+    </script>
 
   </body>
 

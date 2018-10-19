@@ -32,6 +32,9 @@ app.use(session({
     }
 }));
 
+// MomentJS configuration
+app.locals.moment = require("moment");
+
 // Flash config
 app.use(flash());
 app.use(function(req, res, next) {
