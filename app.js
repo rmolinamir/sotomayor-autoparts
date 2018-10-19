@@ -52,10 +52,6 @@ app.get("*", function(req, res) {
     res.render("error");
 });
 
-console.log(process.env.PORT);
-console.log(process.env.IP);
-console.log(process.env.DATABASEURL)
-
 // Tell express to listen to requests
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("SERVER HAS STARTED ON PORT: " + process.env.PORT);
