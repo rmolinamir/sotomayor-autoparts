@@ -892,11 +892,11 @@
             });
           });
           
-          map.addControl(new MultiTouch()); 
           map.addControl(new mapboxgl.NavigationControl());
 
           // Add zoom and rotation controls to the map.
           if (isMobile) {
+            map.addControl(new MultiTouch()); 
             document.getElementById("centerMap").style.display = "none";
           }
 
