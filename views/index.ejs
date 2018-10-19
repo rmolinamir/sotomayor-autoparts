@@ -98,7 +98,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
 
       <!-- Services -->
       <section id="services">
@@ -832,8 +832,13 @@
           });
       });
 
-      document.getElementById("map").style.height = document.getElementById("map").clientHeight;
-      document.getElementById("masthead").style.height = document.getElementById("masthead").clientHeight;
+      // Setting up heights for media devices
+      if (isMobile) {
+        document.getElementById("main").style.height = document.getElementById("main").clientHeight;
+        document.getElementById("masthead").style.height = document.getElementById("masthead").clientHeight;
+        document.getElementById("map").style.height = document.getElementById("map").clientHeight;
+      }
+      
     </script>
 
   </body>
