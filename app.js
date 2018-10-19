@@ -58,5 +58,5 @@ console.log(process.env.DATABASEURL)
 
 // Tell express to listen to requests
 app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("SERVER HAS STARTED");
+    console.log("SERVER HAS STARTED ON PORT: " + process.env.PORT);
 });
