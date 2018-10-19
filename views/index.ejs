@@ -25,6 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="shortcut icon" href="img/logos/repuestos-sotomayor-logo.ico">
     <title>Repuestos Sotomayor</title>
 
     <!-- Bootstrap core CSS -->
@@ -69,7 +70,7 @@
               <a class="nav-link js-scroll-trigger" href="#portfolio">Nuestros Repuestos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#about">Sobre Nosotros</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
@@ -131,7 +132,7 @@
               <h4 class="service-heading">Horarios</h4>
               <p>Abiertos todos los días desde las <strong>8:00 AM</strong> hasta las  <strong>2:00 PM</strong>.</p>
               <p class="text-muted">
-                <% if (moment().isAfter(moment('8:00am', 'h:mma')) && moment().isBefore(moment('2:00pm', 'h:mma'))) { %>
+                <% if ( moment().isAfter(moment('8:00am', 'h:mma')) && moment().isBefore(moment('2:00pm', 'h:mma')) )  { %>
                   <span id='open'>Abiertos</span>
                 <% } else { %>
                   <span id='closed'>Cerrados</span>
@@ -161,87 +162,117 @@
           </div>
           <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <i class="fas fa-plus fa-3x"></i>
+              <div class="portfolio-wrapper">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
                   </div>
+                  <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <div class="caption-header">
+                    <h4>Partes de Motores</h4>
+                  </div>
+                  <p class="text-muted">Empacaduras, bombas, pistones, anillos, entre otros</p>
+                  <p class="more-info"><a data-toggle="modal" href="#portfolioModal1"><i class="fas fa-external-link-alt"></i></a></p></p>
                 </div>
-                <img class="img-fluid" src="img/portfolio/01-full.jpg" alt="">
-              </a>
-              <div class="portfolio-caption">
-                <h4>Motores</h4>
-                <p class="text-muted">Correas</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <i class="fas fa-plus fa-3x"></i>
+              <div class="portfolio-wrapper">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
                   </div>
+                  <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <div class="caption-header">
+                    <h4>Tren Delanteros</h4>
+                  </div>
+                  <p class="text-muted">Muñones, terminales, rotulas. ¡Para cualquier marca de carros!</p>
+                  <p class="more-info"><a data-toggle="modal" href="#portfolioModal2"><i class="fas fa-external-link-alt"></i></a></p>
                 </div>
-                <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-              </a>
-              <div class="portfolio-caption">
-                <h4>Explore</h4>
-                <p class="text-muted">Graphic Design</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <i class="fas fa-plus fa-3x"></i>
+              <div class="portfolio-wrapper">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
                   </div>
+                  <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <div class="caption-header">
+                    <h4>Suspensión</h4>
+                  </div>
+                  <p class="text-muted">Amortiguadores y espirales</p>
+                  <p class="more-info"><a data-toggle="modal" href="#portfolioModal3"><i class="fas fa-external-link-alt"></i></a></p>
                 </div>
-                <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-              </a>
-              <div class="portfolio-caption">
-                <h4>Finish</h4>
-                <p class="text-muted">Identity</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <i class="fas fa-plus fa-3x"></i>
+              <div class="portfolio-wrapper">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
                   </div>
+                  <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <div class="caption-header">
+                    <h4>Kits de Croche</h4>
+                  </div>
+                  <p class="text-muted">Plato o prensa, discos de croché, collarines y bombines</p>
+                  <p class="more-info"><a data-toggle="modal" href="#portfolioModal4"><i class="fas fa-external-link-alt"></i></a></p>
                 </div>
-                <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-              </a>
-              <div class="portfolio-caption">
-                <h4>Lines</h4>
-                <p class="text-muted">Branding</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <i class="fas fa-plus fa-3x"></i>
+              <div class="portfolio-wrapper">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
                   </div>
+                  <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <div class="caption-header">
+                    <h4>Transmisión</h4>
+                  </div>
+                  <p class="text-muted">Kit de satelites y planetarios, piñón y corona</p>
+                  <p class="more-info"><a data-toggle="modal" href="#portfolioModal5"><i class="fas fa-external-link-alt"></i></a></p>
                 </div>
-                <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-              </a>
-              <div class="portfolio-caption">
-                <h4>Southwest</h4>
-                <p class="text-muted">Website Design</p>
               </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <i class="fas fa-plus fa-3x"></i>
+              <div class="portfolio-wrapper">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
                   </div>
+                  <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                  <div class="caption-header">
+                    <h4>Rodamientos</h4>
+                  </div>
+                  <p class="text-muted">Cubos de rueda, rolineras y estoperas</p>
+                  <p class="more-info"><a data-toggle="modal" href="#portfolioModal6"><i class="fas fa-external-link-alt"></i></a></p>
                 </div>
-                <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-              </a>
-              <div class="portfolio-caption">
-                <h4>Window</h4>
-                <p class="text-muted">Photography</p>
               </div>
             </div>
           </div>
@@ -253,8 +284,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">About</h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              <h2 class="section-heading text-uppercase">Sobre Nosotros</h2>
+              <h3 class="section-subheading text-muted">Nuestra historia.</h3>
             </div>
           </div>
           <div class="row">
@@ -334,8 +365,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-              <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              <h2 class="section-heading text-uppercase">Siguenos en <i class="fab fa-instagram"></i> <a href="https://www.instagram.com/sotomayor.repuestos/" target="_blank">sotomayor.repuestos</h2></a>
+              <h3 class="section-subheading text-muted">¡Se el primero en enterarte de nuestras últimas ofertas y promociones!</h3>
             </div>
           </div>
           <div class="row">
@@ -425,22 +456,22 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3 col-sm-6">
-              <a href="#">
+              <a href="#contact">
                 <img class="img-fluid d-block mx-auto" src="img/logos/toyota-logo.jpg" alt="">
               </a>
             </div>
             <div class="col-md-3 col-sm-6">
-              <a href="#">
+              <a href="#contact">
                 <img class="img-fluid d-block mx-auto" src="img/logos/chevrolet-logo.jpg" alt="">
               </a>
             </div>
             <div class="col-md-3 col-sm-6">
-              <a href="#">
+              <a href="#contact">
                 <img class="img-fluid d-block mx-auto" src="img/logos/ford-logo.jpg" alt="">
               </a>
             </div>
             <div class="col-md-3 col-sm-6">
-              <a href="#">
+              <a href="#contact">
                 <img class="img-fluid d-block mx-auto" src="img/logos/jeep-logo.jpg" alt="">
               </a>
             </div>
@@ -790,8 +821,8 @@
           // Add zoom and rotation controls to the map.
           if (!isMobile) {
             map.scrollZoom.disable();
+            map.addControl(new mapboxgl.NavigationControl());
           }
-          map.addControl(new mapboxgl.NavigationControl());
 
           // Center the map on the coordinates.
           document.getElementById("centerMap").addEventListener('click', function (e) {
