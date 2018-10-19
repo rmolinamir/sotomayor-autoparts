@@ -86,7 +86,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="masthead">
+    <header id="masthead" class="masthead">
       <div class="overlay">
         <div class="container">
           <div class="intro-text">
@@ -831,6 +831,9 @@
             map.flyTo({center: ["-68.0121437815","10.1728411"]});
           });
       });
+
+      document.getElementById("map").style.height = document.getElementById("map").clientHeight;
+      document.getElementById("masthead").style.height = document.getElementById("masthead").clientHeight;
     </script>
 
   </body>
