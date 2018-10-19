@@ -750,10 +750,10 @@
     <!-- Mapbox -->
     <script>
       mapboxgl.accessToken = "pk.eyJ1Ijoicm9iZXJ0MDMxMCIsImEiOiJjam5mZjlzZnQwazhuM3BwN283b3Q0ZDFqIn0.xxJ6Db0UXKmKp3_Z6I_low";
-      var bounds = [
-          [-68.06214,10.14743], // Southwest coordinates
-          [-67.96214,10.19743]  // Northeast coordinates
-      ];
+      // var bounds = [
+      //     [-68.06214,10.14743], // Southwest coordinates
+      //     [-67.96214,10.19743]  // Northeast coordinates
+      // ];
 
 
       /* Map: This represents the map on the page. */
@@ -762,7 +762,7 @@
         style: "mapbox://styles/mapbox/streets-v10",
         zoom:15.0,
         center: [-68.01214,10.17243],
-        maxBounds: bounds // Sets bounds as max
+        // maxBounds: bounds // Sets bounds as max
       });
 
       map.on("load", function () {
