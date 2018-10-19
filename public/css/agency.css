@@ -175,13 +175,23 @@ img::-moz-selection {
 
 header.masthead {
   height: 100vh;
+  width: 100vw;
   text-align: center;
   color: white;
   background-image: url("../img/header-bg.jpg");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
+  background-size: cover; */
+
+ 
+
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  z-index: -1;
+
 }
 
 header.masthead .intro-text {
@@ -231,6 +241,14 @@ header.masthead .intro-text .intro-heading {
     margin-bottom: 50px;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   }
+}
+
+main {
+  position: absolute;
+  width: 100%;
+  top: 100vh;
+  background-color: #fff !important;
+  padding-bottom: 0;
 }
 
 .service-heading {
