@@ -882,13 +882,122 @@
           });
       });
 
-      // Setting up heights for media devices
+      
       if (isMobile) {
+        // Setting up heights for media devices
         document.getElementById("main").style.height = document.getElementById("main").clientHeight;
         document.getElementById("masthead").style.height = document.getElementById("masthead").clientHeight;
         document.getElementById("map").style.height = document.getElementById("map").clientHeight;
+        
+        // Mapbox overlay functionality for multitouch events
+
+        // Set Canvas ID
+        let canvas = document.getElementsByClassName('mapboxgl-canvas')[0];
+        canvas.setAttribute("id", "mapboxgl-canvas");
+
+        // Touch Point cache
+        var tpCache = new Array();
+
+        // Fade In and Out functions
+        function fadeOut(id,val){ if(isNaN(val)){ val = 9;}
+        document.getElementById(id).style.opacity='0.'+val;
+          //For IE
+          document.getElementById(id).style.filter='alpha(opacity='+val+'0)';
+          if(val>0){
+            val--;
+            setTimeout('fadeOut("'+id+'",'+val+')',90);
+          }else{return;}
+          }
+
+        function fadeIn(id,val){
+          // ID of the element to fade, Fade value[min value is 0]
+          if(isNaN(val)){ val = 0;}
+          document.getElementById(id).style.opacity='0.'+val;
+          //For IE
+          document.getElementById(id).style.filter='alpha(opacity='+val+'0)';
+          if(val<9){
+            val++;
+            setTimeout('fadeIn("'+id+'",'+val+')',90);
+          }else{return;}
+        }
+
+        function update_background(ev) {
+          // Change background color based on the number simultaneous touches
+          // in the event's targetTouches list:
+          //   yellow - one tap (or hold)
+          //   pink - two taps
+          //   lightblue - more than two taps
+          switch (ev.targetTouches.length) {
+            case 1:
+              // Single tap`
+              // ev.target.style.background = "yellow";
+              // ev.target.style.display = "unset";
+              document.getElementById('map-overlay').style.display = "unset";
+              fadeIn('map-overlay',9);
+
+              // setTimeout(function() {
+              //   ev.target.style.display = "none";  
+              // }, 2500);
+              break;
+            case 2:
+              // Two simultaneous touches
+              // ev.target.style.background = "pink";
+              // ev.target.style.display = "none";      
+              document.getElementById('map-overlay').style.display = "none";
+              fadeOut('map-overlay',0)
+              break;
+            default:
+              // More than two simultaneous touches
+              // ev.target.style.background = "lightblue";
+              // ev.target.style.display = "none";      
+              document.getElementById('map-overlay').style.display = "none";
+              fadeOut('map-overlay',0)
+          }
+        } 
+        
+        function start_handler(ev) {
+          // If the user makes simultaneious touches, the browser will fire a
+          // separate touchstart event for each touch point. Thus if there are
+          // three simultaneous touches, the first touchstart event will have
+          // targetTouches length of one, the second event will have a length
+          // of two, and so on.
+          ev.preventDefault();
+          // Cache the touch points for later processing of 2-touch pinch/zoom
+          if (ev.targetTouches.length == 2) {
+            for (var i=0; i < ev.targetTouches.length; i++) {
+              tpCache.push(ev.targetTouches[i]);
+            }
+          }
+          update_background(ev);
+        }
+        
+        function end_handler(ev) {
+          ev.preventDefault();
+          if (ev.targetTouches.length == 0) {
+            // Restore background and border to original values
+            //  ev.target.style.background = "white";
+            //  ev.target.style.border = "1px solid black";   
+            document.getElementById('map-overlay').style.display = "none";
+            fadeOut('map-overlay',0);
+          }
+        }
+        
+        function set_handlers(name) {
+          // Install event handlers for the given element
+          var el=document.getElementById(name);
+          el.ontouchstart = start_handler;
+          // Use same handler for touchcancel and touchend
+          el.ontouchcancel = end_handler;
+          el.ontouchend = end_handler;
+        }
+        
+        function initMapOverlay() {
+          set_handlers("mapboxgl-canvas");
+        }
+
+        initMapOverlay();  
       }
-      
+
     </script>
 
   </body>
