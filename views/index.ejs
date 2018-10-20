@@ -932,9 +932,9 @@
               // Single tap`
               // ev.target.style.background = "yellow";
               // ev.target.style.display = "unset";
-
+              
+              document.getElementById('map-overlay').style.display = "unset";
               setTimeout(function() {
-                document.getElementById('map-overlay').style.display = "unset";
                 fadeIn('map-overlay',9);
               }, 500);
               break;
