@@ -55,4 +55,74 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     $('.navbar').removeClass('d-none');
   })
 
+
 })(jQuery); // End of use strict
+
+  // Input Lock
+  $('textarea').blur(function () {
+    $('#contactUs textarea').each(function () {
+        $this = $(this);
+        if ( this.value != '' ) {
+          $this.addClass('focused');
+          $('textarea + label + span').css({'opacity': 1});
+        }
+        else {
+          $this.removeClass('focused');
+          $('textarea + label + span').css({'opacity': 0});
+        }
+    });
+  });
+
+  $('#contactUs .field:first-child input').blur(function () {
+      $('#contactUs .field:first-child input').each(function () {
+          $this = $(this);
+          if ( this.value != '' ) {
+            $this.addClass('focused');
+            $('.field:first-child input + label + span').css({'opacity': 1});
+          }
+          else {
+            $this.removeClass('focused');
+            $('.field:first-child input + label + span').css({'opacity': 0});
+          }
+      });
+  });
+
+  $('#contactUs .field:nth-child(2) input').blur(function () {
+      $('#contactUs .field:nth-child(2) input').each(function () {
+          $this = $(this);
+          if ( this.value != '' ) {
+            $this.addClass('focused');
+            $('.field:nth-child(2) input + label + span').css({'opacity': 1});
+          }
+          else {
+            $this.removeClass('focused');
+            $('.field:nth-child(2) input + label + span').css({'opacity': 0});
+          }
+      });
+  });
+
+  $('#contactUs .field:nth-child(3) input').blur(function () {
+    $('#contactUs .field:nth-child(3) input').each(function () {
+        $this = $(this);
+        if ( this.value != '' ) {
+          $this.addClass('focused');
+          $('.field:nth-child(3) input + label + span').css({'opacity': 1});
+        }
+        else {
+          $this.removeClass('focused');
+          $('.field:nth-child(3) input + label + span').css({'opacity': 0});
+        }
+    });
+
+});
+
+$(document).ready(function(){
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > document.getElementById("masthead").clientHeight*2) {
+        $('#back-to-top').fadeIn(400);
+    } else {
+        $('#back-to-top').fadeOut(400);
+    }
+  });
+  $('#back-to-top').tooltip('show');
+});

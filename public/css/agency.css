@@ -143,6 +143,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
+  text-align: center;
   font-size: 90%;
   font-weight: 400;
   padding: 0.75em 0;
@@ -175,11 +176,22 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 0;
     padding-bottom: 0;
-    background-color: rgba(45, 45, 45, 0.5);
+    background-color: rgba(45, 45, 45, 0.75);
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
     padding: 12px 0;
+  }
+  #mainNav .navbar-nav .nav-item {
+    position: relative;
+    width: 12.5vw;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 header.masthead {
@@ -250,6 +262,10 @@ main {
   width: 100%;
   top: 100vh;
   background-color: #fff !important;
+  padding-bottom: 0;
+}
+
+#services {
   padding-bottom: 0;
 }
 
@@ -744,66 +760,198 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-attrib.mapboxg
 }
 
 .brand-logo {
-  margin-top: 12.5px;
-  margin-bottom: 12.5px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
-section#contact {
-  background-color: #212529;
-  background-image: url("../img/map-image.png");
+ section#contact {
+  background-color: #f8f9fa;
+  /* background-image: url("../img/map-image.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
 
-section#contact .section-heading {
-  color: #fff;
+p.contact-info {
+    line-height: 1.75;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-section#contact .form-group {
-  margin-bottom: 25px;
+p.contact-info a {
+  color: #333;
 }
 
-section#contact .form-group input,
-section#contact .form-group textarea {
-  padding: 20px;
-}
-
-section#contact .form-group input.form-control {
-  height: auto;
-}
-
-section#contact .form-group textarea.form-control {
-  height: 248px;
-}
-
-section#contact .form-control:focus {
+ section#contact .form-control:focus {
   border-color: #fed136;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 section#contact ::-webkit-input-placeholder {
-  font-weight: 700;
-  color: #ced4da;
+  color: #a0a0a0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 section#contact :-moz-placeholder {
-  font-weight: 700;
-  color: #ced4da;
+  color: #a0a0a0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 section#contact ::-moz-placeholder {
-  font-weight: 700;
-  color: #ced4da;
+  color: #a0a0a0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 section#contact :-ms-input-placeholder {
-  font-weight: 700;
-  color: #ced4da;
+  color: #a0a0a0;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+form.contact-form{
+  color: #ffffff !important;
+  font-weight: 700;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+form .field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+form .field label {
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fed136;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 18px 0;
+  font-size: 1em;
+  letter-spacing: 0.075em;
+  -webkit-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+
+form .field label + span {
+  opacity: 0;
+  color: #fed136;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 59.4px;
+  transform: translate(-50%, -50%);
+  font-size: 2.75em;
+  -webkit-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+
+form .field label + span.text-area-check {
+  top: 9.5%;
+}
+
+form .field input,
+form .field textarea {
+  border: none;
+  background: #E8E9EA;
+  width: 100%;
+  margin: 0;
+  padding: 18px 0;
+  padding-left: 20%;
+  color: #313A3D;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  text-transform: unset;
+}
+form .msg-box textarea{
+  height: 60px !important;
+}
+
+form .field input#msg,
+form .field textarea#msg {
+  height: 18px;
+  resize: none;
+  -webkit-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+
+form .field input:focus, form .field input.focused,
+form .field textarea:focus,
+form .field textarea.focused {
+  outline: none;
+}
+
+form .field input:focus#msg, form .field input.focused#msg,
+form .field textarea:focus#msg,
+form .field textarea.focused#msg {
+  padding-bottom: 300px;
+}
+
+form .field input:focus + label, form .field input.focused + label,
+form .field textarea:focus + label,
+form .field textarea.focused + label {
+  width: 18%;
+  background: #333;
+  color: #fed136;
+}
+
+form .field input.focused + label,
+form .field textarea.focused + label {
+  color: #333;
+}
+
+form .field:hover label {
+  width: 18%;
+  background: #333;
+  color: #fed136;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+form input[type="submit"] {
+  background: #fed136;
+  color: #fff;
+  font-weight: 700;
+  -webkit-appearance: none;
+  border: none;
+  text-transform: uppercase;
+  position: relative;
+  padding: 13px 50px;
+  font-size: 1.4em;
+  letter-spacing: 0.1em;
+  -webkit-transition: all 333ms ease-in-out;
+  -o-transition: all 333ms ease-in-out;
+  transition: all 333ms ease-in-out;
+}
+
+form input[type="submit"]:hover {
+  background: #333;
+  color: #fed136;
+}
+
+form input[type="submit"]:focus {
+  outline: none;
+  background: #fed136;
 }
 
 footer {
@@ -849,4 +997,112 @@ ul.social-buttons li a {
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
+}
+
+.scroll-to-top {
+  z-index: 2;
+  position: fixed;
+  display: none;
+  right: 7.5px;
+  bottom: 7.5px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 197, 0, .75);
+  font-size: 30px;
+  line-height: 47.5px;
+  transition: all ease-in 0.2s;
+}
+
+.scroll-to-top:hover{
+  background: rgba(52,58,64,.75);
+}
+
+/* Alert Modal */
+
+#alert-modal {
+  position: fixed;
+  background-color: rgba(45,45,45,0.75);
+	pointer-events: none;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	text-align: center;
+	white-space: nowrap;
+	height: 100%;
+}
+
+#alert-modal:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+.alert-modal-check {
+	pointer-events: auto;
+}
+
+.alert-modal-check:checked ~ .alert-modal {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.alert-modal {
+  min-width: 310px;
+  width: 40%;
+  height: 300px;
+	background: #FFF;
+	z-index: 1;
+	display: inline-block;
+	position: relative;
+	pointer-events: auto;
+	padding: 25px;
+	text-align: right;
+	border-radius: 4px;
+	white-space: normal;
+	display: inline-block;
+	vertical-align: middle;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.alert-modal-success {
+  background-color: #edf6e9;
+  border: 2px solid #3c763d;
+  color: #3c763d;
+}
+
+.alert-modal-danger {
+  background-color: #f2e1e1;
+  border: 1px solid #a94442;
+  color: #a94442;
+}
+
+.alert-modal-btn {
+  position: absolute;
+  top: 78.5%;
+  right: 5%;
+}
+
+.alert-modal h2 {
+	text-align: center;
+}
+
+.alert-modal p {
+	text-align: center;
+}
+
+.alert-modal-close {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+}
+
+.alert-modal-check {
+	display: none;
 }
