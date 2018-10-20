@@ -312,6 +312,26 @@ main {
   height: 65vh;
 }
 
+#map-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.45);
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: none;
+}
+
+#map-overlay span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  color: #fff;
+}
+
 #map {
   position: absolute;
   width: 100vw;
@@ -766,22 +786,25 @@ a.mapboxgl-ctrl-logo, .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-attrib.mapboxg
 
  section#contact {
   background-color: #f8f9fa;
-  /* background-image: url("../img/map-image.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
 
 p.contact-info {
-    line-height: 1.75;
-    font-size: 20px;
-    letter-spacing: 1px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    color: #333;
+  line-height: 1.75;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #333;
 }
 
 p.contact-info a {
-  color: #333;
+  color: #b38b00;
+}
+
+p.contact-info a:hover {
+  color: #fed136;
 }
 
  section#contact .form-control:focus {
@@ -850,7 +873,7 @@ form .field label + span {
   display: block;
   position: absolute;
   top: 50%;
-  left: 59.4px;
+  left: 9.25%;
   transform: translate(-50%, -50%);
   font-size: 2.75em;
   -webkit-transition: all 333ms ease-in-out;

@@ -116,6 +116,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 });
 
+// Scroll-to-top button fade in and out
 $(document).ready(function(){
   $(window).scroll(function () {
     if ($(this).scrollTop() > document.getElementById("masthead").clientHeight*2) {
@@ -126,3 +127,69 @@ $(document).ready(function(){
   });
   $('#back-to-top').tooltip('show');
 });
+
+$(document).ready(function() {
+  attachDoubleTap('#map-wrapper', {
+    onSingleTap: function() {
+      // Set display to unset
+      $('#map-overlay').css("display", "unset");
+      // After 2.5 seconds set display to none
+      setTimeout(function() {
+        $('#map-overlay').css("display", "none");
+      }, 2500);
+    },
+    // Set display to none on double tap
+    onDoubleTap: function() {
+      $('#map-overlay').css("display", "none");
+    },
+    // onMove: function() {
+    //   $('.msg').text('moved');
+    // }
+  });
+});
+
+// Double Tap Recognition 
+var tapped = false;
+var isDragging = false;
+function attachDoubleTap(elem, callbacks) {
+  callbacks = callbacks || {};
+  callbacks.onSingleTap = callbacks.onSingleTap || function() {}
+  callbacks.onDoubleTap = callbacks.onDoubleTap || function() {}
+  callbacks.onMove = callbacks.onMove || function() {}
+
+  $(document)
+    .on('touchstart', elem, function(e) {
+
+      $(window).bind('touchmove', function() {
+        isDragging = true;
+        callbacks.onMove();
+        $(window).unbind('touchmove');
+      });
+    })
+    .on('touchend', elem, function(e) {
+
+      var wasDragging = isDragging;
+      isDragging = false;
+      $(window).unbind("touchmove");
+      if (!wasDragging) { //was clicking
+
+        //detect single or double tap
+        var _this = $(this);
+        if (!tapped) { //if tap is not set, set up single tap
+          tapped = setTimeout(function() {
+            tapped = null
+              //insert things you want to do when single tapped
+            callbacks.onSingleTap(_this);
+
+          }, 200); //wait 300ms then run single click code
+        } else { //tapped within 300ms of last tap. double tap
+          clearTimeout(tapped); //stop single tap callback
+          tapped = null
+
+          //insert things you want to do when double tapped
+          callbacks.onDoubleTap(_this);
+
+        }
+      }
+    })
+}
