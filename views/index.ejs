@@ -933,9 +933,9 @@
               // ev.target.style.background = "yellow";
               // ev.target.style.display = "unset";
               console.log(ev.targetTouches.length);
-              document.getElementById('map-overlay').style.display = "unset";
               setTimeout(function() {
                 if (ev.targetTouches.length === 1) {
+                  document.getElementById('map-overlay').style.display = "unset";
                   fadeIn('map-overlay',9);
                 }
               }, 500);
