@@ -882,7 +882,7 @@
           });
       });
 
-      
+      // Mobile config
       if (isMobile) {
         // Setting up heights for media devices
         document.getElementById("main").style.height = document.getElementById("main").clientHeight;
@@ -932,12 +932,11 @@
               // Single tap`
               // ev.target.style.background = "yellow";
               // ev.target.style.display = "unset";
-              document.getElementById('map-overlay').style.display = "unset";
-              fadeIn('map-overlay',9);
 
-              // setTimeout(function() {
-              //   ev.target.style.display = "none";  
-              // }, 2500);
+              setTimeout(function() {
+                document.getElementById('map-overlay').style.display = "unset";
+                fadeIn('map-overlay',9);
+              }, 500);
               break;
             case 2:
               // Two simultaneous touches
