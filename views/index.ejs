@@ -149,7 +149,7 @@
         </div>
         <div id="map-wrapper">
           <div id="map-overlay">
-            <span>Use two fingers to move the map.</span>
+            <span>Use two fingers to move the map or press the Google Map link.</span>
           </div>
           <div id='map'>
             <a href="https://www.google.com/maps/place/Repuestos+Sotomayor+C.A/@10.1726933,-68.0125119,19z/data=!4m8!1m2!2m1!1sAvenida+Padre+Alfonzo+Cruce+con+Avenida+Michelena.+Edif.+90-64.+Sector+la+Candelaria+Valencia,+Edo.+Carabobo.!3m4!1s0x8e806711fdb4f7f3:0xdf6f059983c57db2!8m2!3d10.1726422!4d-68.0121551" target="_blank"><div id='openGoogle' class="btn btn-danger"><i class="fas fa-external-link-alt"></i> Google Maps</div></a>
@@ -896,7 +896,7 @@
         canvas.setAttribute("id", "mapboxgl-canvas");
 
         // Touch Point cache
-        var tpCache = new Array();
+        let tpCache = new Array();
 
         // Fade In and Out functions
         function fadeOut(id,val){ if(isNaN(val)){ val = 9;}
@@ -922,16 +922,10 @@
         }
 
         function update_background(ev) {
-          // Change background color based on the number simultaneous touches
-          // in the event's targetTouches list:
-          //   yellow - one tap (or hold)
-          //   pink - two taps
-          //   lightblue - more than two taps
+          // Change background overlay based on the number simultaneous touches
           switch (ev.targetTouches.length) {
             case 1:
-              // Single tap`
-              // ev.target.style.background = "yellow";
-              // ev.target.style.display = "unset";
+              // Single tap
               console.log(ev.targetTouches.length);
               document.getElementById('map-overlay').style.display = "unset";
               setTimeout(function() {
@@ -941,16 +935,12 @@
               }, 500);
               break;
             case 2:
-              // Two simultaneous touches
-              // ev.target.style.background = "pink";
-              // ev.target.style.display = "none";      
+              // Two simultaneous touches     
               document.getElementById('map-overlay').style.display = "none";
               fadeOut('map-overlay',0)
               break;
             default:
-              // More than two simultaneous touches
-              // ev.target.style.background = "lightblue";
-              // ev.target.style.display = "none";      
+              // More than two simultaneous touches    
               document.getElementById('map-overlay').style.display = "none";
               fadeOut('map-overlay',0)
           }
@@ -975,9 +965,7 @@
         function end_handler(ev) {
           ev.preventDefault();
           if (ev.targetTouches.length == 0) {
-            // Restore background and border to original values
-            //  ev.target.style.background = "white";
-            //  ev.target.style.border = "1px solid black";   
+            // Restore background to original values
             document.getElementById('map-overlay').style.display = "none";
             fadeOut('map-overlay',0);
           }
@@ -985,7 +973,7 @@
         
         function set_handlers(name) {
           // Install event handlers for the given element
-          var el=document.getElementById(name);
+          let el=document.getElementById(name);
           el.ontouchstart = start_handler;
           // Use same handler for touchcancel and touchend
           el.ontouchcancel = end_handler;
