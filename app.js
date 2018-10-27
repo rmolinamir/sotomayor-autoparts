@@ -63,13 +63,13 @@ app.post("/", function(req,res) {
             }
         });
         var mailOptions = {
-            from: 'Bonpreu Foods ' + process.env.GMAILUSERNAME,
+            from: 'Robert Molina - ' + process.env.GMAILUSERNAME,
             //to: 'repuestosotomayorca@gmail.com',
-            to: process.env.GMAILUSERNAME,
+            to: process.env.GMAILUSERNAMECLIENT,
             replyTo: req.body.email,
             subject: 'Repuestos Sotomayor - Nuevo Mensaje',
             text: 'Tiene un mensaje con los próximos detalles: Nombre Completo: ' + req.body.name + ', Número: ' + req.body.mobile + ', Message: ' + req.body.message + '.',
-            html: '<p><img src="https://www.bonpreufoods.com/images/logo-only-small.png"></p><h3>Ha recibido un nuevo mensaje con los próximos detalles:</h3><ul><li>Nombre Completo: ' + req.body.name + ' </li><li>Número: ' + req.body.mobile + ' </li><li>Email: ' + req.body.email + ' </li></ul><br><p><h3>Mensaje completo:</h3> ' + req.body.message + ' </p><hr><p>Este ha sido un correo automatizado, favor no responder a este correo.</p>'
+            html: '<h3>Ha recibido un nuevo mensaje con los próximos detalles:</h3><ul><li>Nombre Completo: ' + req.body.name + ' </li><li>Número: ' + req.body.mobile + ' </li><li>Email: ' + req.body.email + ' </li></ul><br><p><h3>Mensaje completo:</h3> ' + req.body.message + ' </p><hr><p>Este ha sido un correo automatizado, favor no responder a este correo.</p><p><img src="https://nameless-basin-74779.herokuapp.com/img/about/repuestos-sotomayor-front.jpg"></p>'
         };
         // Sending message
         smtpTransport.sendMail(mailOptions, function(err) {
