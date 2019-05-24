@@ -63,7 +63,7 @@ app.post("/", function(req,res) {
             }
         });
         var mailOptions = {
-            from: 'Robert Molina - ' + process.env.GMAILUSERNAME,
+            from: 'Repuestos Sotomayor - ' + process.env.GMAILUSERNAME,
             //to: 'repuestosotomayorca@gmail.com',
             to: process.env.GMAILUSERNAMECLIENT,
             replyTo: req.body.email,
